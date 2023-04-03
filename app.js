@@ -15,11 +15,11 @@ const saveNotes=()=>{
 addBtn.addEventListener('click',
 function(){
     addNote()
-})
+});
 
 
 
-const addNote=()=>{
+const addNote=(text='')=>{
     const note=document.createElement('div');
     note.classList.add('note')
     note.innerHTML=`
@@ -27,7 +27,7 @@ const addNote=()=>{
       <i class=" save fas fa-save"></i>
       <i class=" trash fas fa-trash"></i>
     </div>
-    <textarea></textarea>
+    <textarea>${text}</textarea>
     `;
     note.querySelector('.trash').addEventListener('click',
     function(){
@@ -42,3 +42,15 @@ const addNote=()=>{
     main.appendChild(note);
     saveNotes()
 }
+
+
+(
+    function(){
+const lsNotes=JSON.parse(localStorage.getItem('notes'));
+lsNotes.forEach(
+    (lsNote)=>{
+        addNote(lsNote)
+    }
+)
+    }
+)();
