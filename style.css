@@ -7,6 +7,7 @@
 #main{
     width: 100%;
     min-height: 100vh;
+    padding-bottom: 50px;
     background-color: #5758BB;
     display: flex;
     flex-wrap: wrap;
